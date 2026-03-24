@@ -14,9 +14,13 @@ if isfile and isfile(keyFile) then
 	local response = game:HttpGet(verifyURL .. savedKey)
 
 	if response:find("true") then
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/scriptjame/test2/refs/heads/main/loot.lua"))()
-		return
-	end
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/scriptjame/test2/refs/heads/main/loot.lua"))()
+    return
+else
+    -- ❌ key hết hạn → xóa file để hiện lại GUI
+    if delfile then
+        delfile(keyFile)
+    end
 end
 
 local TweenService = game:GetService("TweenService")
