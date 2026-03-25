@@ -3,16 +3,19 @@
 local linkvertiseLink = "https://link-center.net/4248703/7sIsVJuQAVLG"
 local lootlabsLink = "https://lootdest.org/s?zY7I2x6A"
 
--- 🔥 THÊM DÒNG NÀY
+-- 🔥 VERIFY URL
 local verifyURL = "https://keysystem-6299.onrender.com/verify?key="
 
 local keyFile = "ShibaKey.txt"
 
--- 🔥 AUTO LOGIN (SỬA NHẸ)
+-- ✅ THÊM HWID
+local hwid = game:GetService("RbxAnalyticsService"):GetClientId()
+
+-- 🔥 AUTO LOGIN (UPDATE HWID)
 if isfile and isfile(keyFile) then
 	local savedKey = readfile(keyFile)
 
-	local response = game:HttpGet(verifyURL .. savedKey)
+	local response = game:HttpGet(verifyURL .. savedKey .. "&hwid=" .. hwid)
 
 	if response:find("true") then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/scriptjame/test2/refs/heads/main/loot.lua"))()
@@ -212,8 +215,8 @@ verify.MouseButton1Click:Connect(function()
 
 	local entered = box.Text
 
-	-- 🔥 THAY ĐOẠN NÀY
-	local response = game:HttpGet(verifyURL .. entered)
+	-- ✅ VERIFY CÓ HWID
+	local response = game:HttpGet(verifyURL .. entered .. "&hwid=" .. hwid)
 
 	if response:find("true") then
 
