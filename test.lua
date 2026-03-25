@@ -8,8 +8,8 @@ local verifyURL = "https://keysystem-6299.onrender.com/verify?key="
 
 local keyFile = "ShibaKey.txt"
 
--- ✅ THÊM HWID
-local hwid = game:GetService("RbxAnalyticsService"):GetClientId()
+-- ✅ HWID (ĐÃ NÂNG CẤP)
+local hwid = game:GetService("RbxAnalyticsService"):GetClientId() .. game.Players.LocalPlayer.UserId
 
 -- 🔥 AUTO LOGIN (UPDATE HWID)
 if isfile and isfile(keyFile) then
@@ -215,7 +215,6 @@ verify.MouseButton1Click:Connect(function()
 
 	local entered = box.Text
 
-	-- ✅ VERIFY CÓ HWID
 	local response = game:HttpGet(verifyURL .. entered .. "&hwid=" .. hwid)
 
 	if response:find("true") then
