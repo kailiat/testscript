@@ -11,19 +11,26 @@ local keyFile = "ShibaKey.txt"
 -- ✅ HWID (ĐÃ NÂNG CẤP)
 local hwid = game:GetService("RbxAnalyticsService"):GetClientId() .. game.Players.LocalPlayer.UserId
 
--- 🔥 AUTO LOGIN (UPDATE HWID)
+-- 🔥 AUTO LOGIN (FIX KHÔNG XOÁ KEY NGAY + ANTI FAIL)
 if isfile and isfile(keyFile) then
 	local savedKey = readfile(keyFile)
 
-	local response = game:HttpGet(verifyURL .. savedKey .. "&hwid=" .. hwid)
+	local success = false
 
-	if response:find("true") then
+	pcall(function()
+		local response = game:HttpGet(verifyURL .. savedKey .. "&hwid=" .. hwid)
+
+		if response and response:find("true") then
+			success = true
+		end
+	end)
+
+	if success then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/scriptjame/test2/refs/heads/main/loot.lua"))()
 		return
 	else
-		if delfile then
-			delfile(keyFile)
-		end
+		-- ❗ KHÔNG xoá key nữa → tránh hiện GUI lại
+		warn("Verify failed, retry later")
 	end
 end
 
