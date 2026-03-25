@@ -1,6 +1,6 @@
 -- SHIBA GET KEY GUI
 
-local linkvertiseLink = "https://link-center.net/4248703/7sIsVJuQAVLG"
+local linkvertiseLink = "https://direct-link.net/4560147/eY0AlGPpobYE"
 local lootlabsLink = "https://lootdest.org/s?5Oe4h2nn"
 
 -- 🔥 VERIFY URL
