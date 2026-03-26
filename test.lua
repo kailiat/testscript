@@ -11,16 +11,14 @@ local keyFile = "ShibaKey.txt"
 -- ✅ HWID (ĐÃ NÂNG CẤP)
 local hwid = game:GetService("RbxAnalyticsService"):GetClientId() .. game.Players.LocalPlayer.UserId
 
--- 🔥 AUTO LOGIN (FIX RESET + RETRY + CHẶN GUI)
+-- 🔥 AUTO LOGIN (GIỮ NGUYÊN - CHỈ FIX RESET)
 if isfile and isfile(keyFile) then
 	local savedKey = readfile(keyFile)
 
 	local success = false
 
-	-- 🔥 đợi nhẹ tránh server vừa restart
 	task.wait(2)
 
-	-- 🔥 thử 5 lần (ổn định hơn cho mobile / giả lập)
 	for i = 1,5 do
 		pcall(function()
 			local response = game:HttpGet(verifyURL .. savedKey .. "&hwid=" .. hwid)
@@ -40,8 +38,8 @@ if isfile and isfile(keyFile) then
 	else
 		warn("Verify failed (server restarting or network issue)")
 
-		-- ❗ QUAN TRỌNG NHẤT: KHÔNG HIỆN GUI KHI SERVER LỖI
-		return
+		-- 🔥 CHỈ SỬA DUY NHẤT DÒNG NÀY:
+		return -- ❗ không hiện GUI nữa
 	end
 end
 
