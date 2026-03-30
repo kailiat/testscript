@@ -1,7 +1,7 @@
 -- SHIBA GET KEY GUI
 
-local linkvertiseLink = "https://link-target.net/4248703/NMAFeKXYONqb"
-local lootlabsLink = "https://loot-link.com/s?i55LYZnQ"
+local linkvertiseLink = "https://keysystem-6299.onrender.com/start?type=lv"
+local lootlabsLink = "https://keysystem-6299.onrender.com/start?type=ll"
 
 -- 🔥 VERIFY URL
 local verifyURL = "https://keysystem-6299.onrender.com/verify?key="
